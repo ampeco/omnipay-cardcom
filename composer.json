@@ -1,0 +1,39 @@
+{
+    "name": "ampeco/omnipay-cardcom",
+    "description": "Omnipay plugin for Cardcom payment gateway",
+    "version": "1.0.0",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ampeco\\OmnipayCardcom\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexander Alexiev",
+            "email": "alexander.alexiev@ampeco.com"
+        },
+        {
+            "name": "Valentin Damyanov",
+            "email": "valentin.damyanov@ampeco.global"
+        }
+    ],
+    "require": {
+        "omnipay/common": "^3.2",
+        "php": ">=8.1.0",
+        "nyholm/psr7": "^1.0",
+        "symfony/http-client": "^6.4",
+        "php-http/httplug": "^2.4"
+    },
+    "allow-plugins": {
+        "php-http/discovery": true
+    },
+    "platform": {
+        "php": "8.1.26"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
