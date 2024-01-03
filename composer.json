@@ -23,7 +23,6 @@
         "omnipay/common": "^3.2",
         "php": ">=8.1.0",
         "nyholm/psr7": "^1.0",
-        "symfony/http-client": "^6.4",
         "php-http/httplug": "^2.4"
     },
     "allow-plugins": {
