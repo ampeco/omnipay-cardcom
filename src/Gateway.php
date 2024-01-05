@@ -14,8 +14,10 @@ namespace Ampeco\OmnipayCardcom;
  * @method \Omnipay\Common\Message\RequestInterface deleteCard(array $options = array())
  */
 
+use Ampeco\OmnipayCardcom\Message\AbstractRequest;
 use Ampeco\OmnipayCardcom\Message\CreateCardRequest;
-use CommonParameters;
+use Ampeco\OmnipayCardcom\Message\GetTokenRequest;
+use Ampeco\OmnipayCardcom\Message\GetTokenResponse;
 use Omnipay\Common\AbstractGateway;
 
 class Gateway extends AbstractGateway
@@ -49,7 +51,7 @@ class Gateway extends AbstractGateway
 
     public function createCard(array $options = array())
     {
-        $this->createRequest(CreateCardRequest::class, $options);
+        return $this->createRequest(CreateCardRequest::class, $options);
     }
     public function purchase(array $options = array())
     {
@@ -59,5 +61,28 @@ class Gateway extends AbstractGateway
     public function getBaseUrl(): string
     {
         return static::API_URL_PROD;
+    }
+
+    protected function createRequest($class, array $parameters)
+    {
+        /** @var AbstractRequest */
+        $req = parent::createRequest($class, $parameters);
+
+        return $req->setGateway($this);
+    }
+
+    public function getCreateCardCurrency()
+    {
+        return $this->getParameter('createCardCurrency');
+    }
+
+    public function getCreateCardAmount(): int
+    {
+        return 1;
+    }
+
+    public function getToken(array $requestData)
+    {
+        return $this->createRequest(GetTokenRequest::class, $requestData)->send();
     }
 }

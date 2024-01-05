@@ -5,7 +5,8 @@ namespace Ampeco\OmnipayCardcom\Message;
 class CreateCardRequest extends AbstractRequest
 {
     protected int $terminalId;
-
+    //TODO Fix this
+    private int $isoCoinId = 2;
     public function getEndpoint()
     {
         return '/api/v11/LowProfile/Create';
@@ -23,12 +24,17 @@ class CreateCardRequest extends AbstractRequest
             'ApiName' => $this->gateway->getApiName(),
             'Amount' => $this->getAmount(),
             'SuccessRedirectUrl' => $this->getReturnUrl(),
-            'FailureRedirectUrl' => $this->getReturnUrl(),
-            'WebhookUrl' => $this->getNotifyUrl(),
+            'FailedRedirectUrl' => $this->getReturnUrl(),
+            //TODO should we need webhook url?
+            'WebhookUrl' => $this->getReturnUrl(),
+            'Operation' => 'CreateTokenOnly',
+            'ProductName' => 'Tokenization',
+            'IsoCoinId' => $this->isoCoinId,
+            //TODO remove the Language parameter
+            'Language' => 'en',
         ];
     }
 
-    //TODO: implement this method
     protected function createResponse($data, $statusCode)
     {
         return $this->response = new CreateCardResponse($this, $data, $statusCode);

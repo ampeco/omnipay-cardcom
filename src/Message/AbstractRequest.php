@@ -44,7 +44,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
             $this->getHttpMethod(),
             $this->gateway->getBaseUrl() . $this->getEndpoint(),
             $this->getHeaders(),
-            http_build_query($data),
+            json_encode($data),
         );
 
         return $this->createResponse(
