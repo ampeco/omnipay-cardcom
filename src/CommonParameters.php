@@ -14,6 +14,16 @@ trait CommonParameters
         return $this->setParameter('api_name', $value);
     }
 
+    public function getApiPassword()
+    {
+        return $this->getParameter('api_password');
+    }
+
+    public function setApiPassword($value)
+    {
+        return $this->setParameter('api_password', $value);
+    }
+
     public function getTerminalId()
     {
         return $this->getParameter('terminal_id');
@@ -22,6 +32,16 @@ trait CommonParameters
     public function setTerminalId($value)
     {
         return $this->setParameter('terminal_id', $value);
+    }
+
+    public function getHoldTerminalId()
+    {
+        return $this->getParameter('hold_terminal_id');
+    }
+
+    public function setHoldTerminalId($value)
+    {
+        return $this->setParameter('hold_terminal_id', $value);
     }
 
     public function getLowProfileId()
@@ -43,5 +63,4 @@ trait CommonParameters
     {
         return $this->getParameter('user_id');
     }
-
 }

@@ -22,9 +22,9 @@ class GetTokenRequest extends AbstractRequest
         ];
     }
 
-    protected function createResponse($data)
+    protected function createResponse($data, $statusCode)
     {
-        return $this->response = new GetTokenResponse($this, $data, $this->gateway->getUserId());
+        return $this->response = new GetTokenResponse($this, $data, $statusCode, $this->gateway->getUserId());
     }
 
 }

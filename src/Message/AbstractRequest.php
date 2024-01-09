@@ -18,6 +18,16 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $this;
     }
 
+    public function setExpiration($value)
+    {
+        return $this->setParameter('expiration', $value);
+    }
+
+    public function getExpiration()
+    {
+        return $this->getParameter('expiration');
+    }
+
     public function getGateway()
     {
         return $this->gateway;

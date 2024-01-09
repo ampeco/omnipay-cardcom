@@ -2,22 +2,14 @@
 
 namespace Ampeco\OmnipayCardcom\Message;
 
-class PurchaseRequest extends AbstractRequest
+class CaptureRequest extends AbstractRequest
 {
-    public function getEndpoint()
+
+    public function getEndpoint(): string
     {
         return '/api/v11/Transactions/Transaction';
     }
 
-    public function setExpiration($value)
-    {
-        return $this->setParameter('expiration', $value);
-    }
-
-    public function getExpiration()
-    {
-        return $this->getParameter('expiration');
-    }
     /**
      * @inheritDoc
      */
@@ -30,6 +22,9 @@ class PurchaseRequest extends AbstractRequest
             'CardExpirationMMYY' => $this->getExpiration(),
             'Amount' => $this->getAmount(),
             'ExternalUniqTranId' => $this->getTransactionId(),
+            'Advanced' => [
+                'ApprovalNumber' => $this->getTransactionReference()
+            ]
         ];
     }
 

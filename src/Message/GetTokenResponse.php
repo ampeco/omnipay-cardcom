@@ -2,15 +2,13 @@
 
 namespace Ampeco\OmnipayCardcom\Message;
 
-use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\NotificationInterface;
-use function Symfony\Component\Translation\t;
 
-class GetTokenResponse extends AbstractResponse implements NotificationInterface
+class GetTokenResponse extends Response implements NotificationInterface
 {
-    public function __construct(AbstractRequest $request, $data, int $userId)
+    public function __construct(AbstractRequest $request, $data, int $statusCode, int $userId)
     {
-        parent::__construct($request, $data);
+        parent::__construct($request, $data, $statusCode);
         $this->data = json_decode($data, true);
         $this->userId = $userId;
     }
@@ -50,27 +48,6 @@ class GetTokenResponse extends AbstractResponse implements NotificationInterface
        return @$this->data['LowProfileId'];
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getTransactionStatus()
-    {
-        // TODO: Implement getTransactionStatus() method.
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getMessage()
-    {
-        // TODO: Implement getMessage() method.
-    }
-
-    public function isSuccessful(): bool
-    {
-        return @$this->data['ResponseCode'] === 0;
-    }
-
     public function isForTokenization(): bool
     {
         return @$this->data['Operation'] == 'CreateTokenOnly';
@@ -79,5 +56,12 @@ class GetTokenResponse extends AbstractResponse implements NotificationInterface
     public function getUserId()
     {
         return $this->userId;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getTransactionStatus()
+    {
     }
 }
