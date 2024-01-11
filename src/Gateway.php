@@ -71,9 +71,9 @@ class Gateway extends AbstractGateway
         return 1;
     }
 
-    public function getToken(array $requestData)
+    public function getToken(array $options = [])
     {
-        return $this->createRequest(GetTokenRequest::class, $requestData)->send();
+        return $this->createRequest(GetTokenRequest::class, $options);
     }
 
     public function authorize(array $options = [])
@@ -96,7 +96,7 @@ class Gateway extends AbstractGateway
         return $this->createRequest(VoidRequest::class, $options);
     }
 
-    public function fetchTransaction(array $options = [])
+    public function query(array $options = [])
     {
         return $this->createRequest(FetchTransactionRequest::class, $options);
     }

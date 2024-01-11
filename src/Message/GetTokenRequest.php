@@ -18,13 +18,13 @@ class GetTokenRequest extends AbstractRequest
         return [
             'TerminalNumber' => $this->gateway->getTerminalId(),
             'ApiName' => $this->gateway->getApiName(),
-            'LowProfileId' => $this->getGateway()->getLowProfileId(),
+            'LowProfileId' => $this->getTransactionReference(),
         ];
     }
 
     protected function createResponse($data, $statusCode)
     {
-        return $this->response = new GetTokenResponse($this, $data, $statusCode, $this->gateway->getUserId());
+        return $this->response = new GetTokenResponse($this, $data, $statusCode);
     }
 
 }

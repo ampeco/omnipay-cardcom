@@ -6,11 +6,10 @@ use Omnipay\Common\Message\NotificationInterface;
 
 class GetTokenResponse extends Response implements NotificationInterface
 {
-    public function __construct(AbstractRequest $request, $data, int $statusCode, int $userId)
+    public function __construct(AbstractRequest $request, $data, int $statusCode)
     {
         parent::__construct($request, $data, $statusCode);
         $this->data = json_decode($data, true);
-        $this->userId = $userId;
     }
     /**
      * @inheritDoc
@@ -53,15 +52,34 @@ class GetTokenResponse extends Response implements NotificationInterface
         return @$this->data['Operation'] == 'CreateTokenOnly';
     }
 
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
     /**
      * @inheritDoc
      */
     public function getTransactionStatus()
     {
+    }
+
+    public function getCardReference(): ?string
+    {
+        return $this->isSuccessful() ? $this->getToken() : null;
+    }
+
+    public function getPaymentMethod(): object
+    {
+        $result = new \stdClass();
+
+        $result->imageUrl = '';
+        $result->last4 = $this->getCardNumber();
+        $result->cardType = $this->getCardType();
+
+        $result->expirationMonth = $this->getCardData()['CardMonth'];
+        $result->expirationYear = $this->getCardData()['CardYear'];
+
+        return $result;
+    }
+
+    public function getUserId()
+    {
+        return $this->userId;
     }
 }
