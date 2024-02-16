@@ -100,4 +100,9 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest(FetchTransactionRequest::class, $options);
     }
+
+    public function issueInvoice(array $options = [])
+    {
+        return $this->createRequest(IssueInvoiceRequest::class, $options);
+    }
 }
