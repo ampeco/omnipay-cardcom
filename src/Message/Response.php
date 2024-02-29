@@ -9,6 +9,7 @@ class Response extends AbstractResponse
     private int $code;
     const PURCHASE_RESPONSE_CODE_SUCCESS = 0;
     const AUTHORIZE_RESPONSE_CODE_SUCCESS = 700;
+    const AUTHORIZE_VALID_APPROVAL_RESPONSE_CODE_SUCCESS = 701;
 
     /**
      * @param AbstractRequest $request
