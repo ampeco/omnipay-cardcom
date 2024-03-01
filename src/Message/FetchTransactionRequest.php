@@ -16,7 +16,7 @@ class FetchTransactionRequest extends AbstractRequest
     public function getData()
     {
         return [
-          'TerminalNumber' => $this->gateway->getTerminalId(),
+          'TerminalNumber' => $this->gateway->getHoldTerminalId(),
            'UserName' => $this->gateway->getApiName(),
            'UserPassword' => $this->gateway->getApiPassword(),
            'internalDealNumber' => $this->getTransactionReference(),

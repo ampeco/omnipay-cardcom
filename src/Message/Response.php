@@ -11,6 +11,7 @@ class Response extends AbstractResponse
     const INVOICE_RESPONSE_CODE_SUCCESS = 0;
     const AUTHORIZE_RESPONSE_CODE_SUCCESS = 700;
     const AUTHORIZE_VALID_APPROVAL_RESPONSE_CODE_SUCCESS = 701;
+    const VOID_RESPONSE_CODE_SUCCESS = 702;
 
     /**
      * @param AbstractRequest $request

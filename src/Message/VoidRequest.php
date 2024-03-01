@@ -30,6 +30,6 @@ class VoidRequest extends AbstractRequest
 
     protected function createResponse($data, $statusCode): Response
     {
-        return $this->response = new Response($this, $data, $statusCode);
+        return $this->response = new VoidResponse($this, $data, $statusCode);
     }
 }
