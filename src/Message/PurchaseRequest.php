@@ -9,15 +9,6 @@ class PurchaseRequest extends AbstractRequest
         return '/api/v11/Transactions/Transaction';
     }
 
-    public function setExpiration($value)
-    {
-        return $this->setParameter('expiration', $value);
-    }
-
-    public function getExpiration()
-    {
-        return $this->getParameter('expiration');
-    }
     /**
      * @inheritDoc
      */
@@ -30,6 +21,7 @@ class PurchaseRequest extends AbstractRequest
             'CardExpirationMMYY' => $this->getExpiration(),
             'Amount' => $this->getAmount(),
             'ExternalUniqTranId' => $this->getTransactionId(),
+            'Document' => $this->getDocument(),
         ];
     }
 

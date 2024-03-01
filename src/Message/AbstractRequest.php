@@ -28,6 +28,16 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $this->getParameter('expiration');
     }
 
+    public function setDocument($value)
+    {
+        return $this->setParameter('document', $value);
+    }
+
+    public function getDocument()
+    {
+        return $this->getParameter('document');
+    }
+
     public function getGateway()
     {
         return $this->gateway;
@@ -56,7 +66,6 @@ abstract class AbstractRequest extends BaseAbstractRequest
             $this->getHeaders(),
             json_encode($data),
         );
-
         return $this->createResponse(
             $httpResponse->getBody()->getContents(),
             $httpResponse->getStatusCode(),

@@ -22,6 +22,7 @@ class CaptureRequest extends AbstractRequest
             'CardExpirationMMYY' => $this->getExpiration(),
             'Amount' => $this->getAmount(),
             'ExternalUniqTranId' => $this->getTransactionId(),
+            'Document' => $this->getDocument(),
             'Advanced' => [
                 'ApprovalNumber' => $this->getTransactionReference()
             ]

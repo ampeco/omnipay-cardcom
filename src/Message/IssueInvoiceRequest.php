@@ -59,6 +59,16 @@ class IssueInvoiceRequest extends AbstractRequest
         return $this->getParameter('is_send_by_email');
     }
 
+    public function setLanguage($value)
+    {
+        return $this->setParameter('language', $value);
+    }
+
+    public function getLanguage()
+    {
+        return $this->getParameter('language');
+    }
+
     public function setInvoiceAddress($value)
     {
         return $this->setParameter('invoice_address', $value);
@@ -119,6 +129,16 @@ class IssueInvoiceRequest extends AbstractRequest
         return $this->getParameter('invoice_language');
     }
 
+    public function setProducts($value)
+    {
+        return $this->setParameter('products', $value);
+    }
+
+    public function getProducts()
+    {
+        return $this->getParameter('products');
+    }
+
     /**
      * @inheritDoc
      */
@@ -127,8 +147,6 @@ class IssueInvoiceRequest extends AbstractRequest
         return [
             'TerminalNumber' => $this->gateway->getTerminalId(),
             'ApiName' => $this->gateway->getApiName(),
-            'Token' => $this->getToken(),
-            'CardExpirationMMYY' => $this->getExpiration(),
             'Amount' => $this->getAmount(),
             'ExternalUniqTranId' => $this->getTransactionId(),
             'Document' => [
@@ -141,6 +159,7 @@ class IssueInvoiceRequest extends AbstractRequest
                 'Mobile' => $this->getInvoiceMobilePhone(),
                 'Phone' => $this->getInvoiceLandlinePhone(),
                 'DepartmentId' => $this->getInvoiceDepartmentId(),
+                'Products' => $this->getProducts(),
                 'Language' => $this->getInvoiceLanguage(),
             ],
         ];
