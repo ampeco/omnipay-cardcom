@@ -12,7 +12,7 @@ class FetchTransactionResponse extends Response
 
     public function isSuccessful() : bool
     {
-        return $this->getCode() < 400 && in_array($this->data['ResponseCode'], [self::AUTHORIZE_RESPONSE_CODE_SUCCESS, self::PURCHASE_RESPONSE_CODE_SUCCESS]);
+        return $this->getCode() < 400 && in_array($this->data['ResponseCode'], [self::AUTHORIZE_RESPONSE_CODE_SUCCESS, self::AUTHORIZE_VALID_APPROVAL_RESPONSE_CODE_SUCCESS, self::PURCHASE_RESPONSE_CODE_SUCCESS]);
     }
 
     public function getApprovalNumber()
