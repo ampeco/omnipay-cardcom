@@ -49,7 +49,12 @@ class GetTokenResponse extends Response implements NotificationInterface
 
     public function isForTokenization(): bool
     {
-        return @$this->data['Operation'] == 'CreateTokenOnly';
+        return @$this->data['Operation'] == 'ChargeAndCreateToken';
+    }
+
+    public function getTransactionId()
+    {
+        return @$this->data['TranzactionId'];
     }
 
     /**

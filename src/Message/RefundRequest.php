@@ -18,8 +18,8 @@ class RefundRequest extends AbstractRequest
         return [
             'ApiName' => $this->gateway->getApiName(),
             'ApiPassword' => $this->gateway->getApiPassword(),
-            'PartialSum' => $this->getAmount(),
             'TransactionId' => $this->getTransactionId(),
+            'CancelOnly' => true,
         ];
     }
 

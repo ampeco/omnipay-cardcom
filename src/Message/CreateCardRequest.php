@@ -12,13 +12,16 @@ class CreateCardRequest extends AbstractRequest
     public function getData()
     {
         return [
-            'TerminalNumber' => $this->gateway->getTerminalId(),
+            'TerminalNumber' => $this->gateway->getHoldTerminalId(),
             'ApiName' => $this->gateway->getApiName(),
             'Amount' => $this->getAmount(),
             'SuccessRedirectUrl' => $this->getReturnUrl(),
             'FailedRedirectUrl' => $this->getReturnUrl(),
-            'Operation' => 'CreateTokenOnly',
+            'Operation' => 'ChargeAndCreateToken',
             'ProductName' => 'Tokenization',
+            'Advanced' => [
+                'JValidateType' => 5
+            ]
         ];
     }
 
