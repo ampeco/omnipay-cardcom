@@ -44,17 +44,12 @@ class GetTokenResponse extends Response implements NotificationInterface
      */
     public function getTransactionReference()
     {
-       return @$this->data['LowProfileId'];
+       return @$this->data['TranzactionId'];
     }
 
     public function isForTokenization(): bool
     {
         return @$this->data['Operation'] == 'ChargeAndCreateToken';
-    }
-
-    public function getTransactionId()
-    {
-        return @$this->data['TranzactionId'];
     }
 
     /**
