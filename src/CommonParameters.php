@@ -63,4 +63,14 @@ trait CommonParameters
     {
         return $this->getParameter('user_id');
     }
+
+    public function setTokenizationTerminalId($value)
+    {
+        return $this->setParameter('tokenization_terminal_id', $value);
+    }
+
+    public function getTokenizationTerminalId()
+    {
+        return $this->getParameter('tokenization_terminal_id');
+    }
 }
