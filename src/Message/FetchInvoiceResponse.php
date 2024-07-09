@@ -20,4 +20,9 @@ class FetchInvoiceResponse extends Response
         return @$this->data['DocUrl'];
     }
 
+    public function getMessage()
+    {
+        return $this->data['Description'];
+    }
+
 }
