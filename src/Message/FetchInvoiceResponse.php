@@ -22,7 +22,7 @@ class FetchInvoiceResponse extends Response
 
     public function getMessage()
     {
-        return $this->data['Description'];
+        return $this->data['Description'] ?? null;
     }
 
 }

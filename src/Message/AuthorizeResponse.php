@@ -12,7 +12,7 @@ class AuthorizeResponse extends Response
 
     public function getTransactionReference()
     {
-        return $this->data['TranzactionId'];
+        return $this->data['TranzactionId'] ?? null;
     }
 
 }
