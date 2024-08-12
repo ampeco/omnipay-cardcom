@@ -25,4 +25,9 @@ class FetchInvoiceResponse extends Response
         return $this->data['Description'] ?? null;
     }
 
+    public function getData()
+    {
+        return $this->data;
+    }
+
 }
