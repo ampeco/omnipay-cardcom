@@ -19,4 +19,9 @@ class FetchTransactionResponse extends Response
     {
         return @$this->data['ApprovalNumber'];
     }
+
+    public function getToken()
+    {
+        return @$this->data['Token'];
+    }
 }
