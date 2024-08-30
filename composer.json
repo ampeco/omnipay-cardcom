@@ -1,7 +1,7 @@
 {
     "name": "ampeco/omnipay-cardcom",
     "description": "Omnipay plugin for Cardcom payment gateway",
-    "version": "1.2.7",
+    "version": "1.2.8",
     "type": "library",
     "license": "MIT",
     "autoload": {
