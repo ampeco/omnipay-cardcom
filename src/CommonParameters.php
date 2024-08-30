@@ -73,4 +73,24 @@ trait CommonParameters
     {
         return $this->getParameter('tokenization_terminal_id');
     }
+
+    public function setFromDate($value)
+    {
+        return $this->setParameter('from_date', $value);
+    }
+
+    public function getFromDate()
+    {
+        return $this->getParameter('from_date');
+    }
+
+    public function setToDate($value)
+    {
+        return $this->setParameter('to_date', $value);
+    }
+
+    public function getToDate()
+    {
+        return $this->getParameter('to_date');
+    }
 }

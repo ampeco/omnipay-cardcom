@@ -17,6 +17,7 @@ use Ampeco\OmnipayCardcom\Message\AbstractRequest;
 use Ampeco\OmnipayCardcom\Message\AuthorizeRequest;
 use Ampeco\OmnipayCardcom\Message\CaptureRequest;
 use Ampeco\OmnipayCardcom\Message\CreateCardRequest;
+use Ampeco\OmnipayCardcom\Message\FetchCardsForExpiryUpdateRequest;
 use Ampeco\OmnipayCardcom\Message\FetchInvoiceRequest;
 use Ampeco\OmnipayCardcom\Message\FetchTransactionRequest;
 use Ampeco\OmnipayCardcom\Message\GetTokenRequest;
@@ -111,5 +112,10 @@ class Gateway extends AbstractGateway
     public function fetchInvoice(array $options = [])
     {
         return $this->createRequest(FetchInvoiceRequest::class, $options);
+    }
+
+    public function fetchCardsForExpiryUpdate(array $options = [])
+    {
+        return $this->createRequest(FetchCardsForExpiryUpdateRequest::class, $options);
     }
 }
