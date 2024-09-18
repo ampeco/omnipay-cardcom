@@ -38,4 +38,9 @@ class Response extends AbstractResponse
     {
         return $this->getCode() < 400 && $this->data['ResponseCode'] === self::PURCHASE_RESPONSE_CODE_SUCCESS;
     }
+
+    public function getMessage()
+    {
+        return @$this->data['Description'];
+    }
 }

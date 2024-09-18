@@ -16,7 +16,7 @@ class GetTokenRequest extends AbstractRequest
     public function getData()
     {
         return [
-            'TerminalNumber' => $this->gateway->getHoldTerminalId(),
+            'TerminalNumber' => $this->gateway->getTokenizationTerminalId() ?? $this->gateway->getHoldTerminalId(),
             'ApiName' => $this->gateway->getApiName(),
             'LowProfileId' => $this->getTransactionReference(),
         ];
