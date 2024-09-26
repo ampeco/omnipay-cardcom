@@ -64,9 +64,9 @@ class Gateway extends AbstractGateway
         return $req->setGateway($this);
     }
 
-    public function getCreateCardCurrency()
+    public function getCreateCardCurrency(): string
     {
-        return $this->getParameter('createCardCurrency');
+        return 'ILS';
     }
 
     public function getCreateCardAmount(): int
