@@ -43,4 +43,9 @@ class Response extends AbstractResponse
     {
         return $this->data['Description'] ?? null;
     }
+
+    public function getTransactionReference()
+    {
+        return $this->data['TranzactionId'] ?? null;
+    }
 }

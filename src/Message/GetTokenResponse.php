@@ -39,14 +39,6 @@ class GetTokenResponse extends Response implements NotificationInterface
         return @$this->data['TokenInfo'];
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getTransactionReference()
-    {
-       return @$this->data['TranzactionId'];
-    }
-
     public function isForTokenization(): bool
     {
         return @$this->data['Operation'] == 'ChargeAndCreateToken';
