@@ -31,7 +31,9 @@ class Response extends AbstractResponse
 
     public function getDocumentNumber()
     {
-        return @$this->data['DocumentNumber'];
+        return isset($this->data['DocumentNumber']) && $this->data['DocumentNumber'] != '-1'
+            ? $this->data['DocumentNumber']
+            : null;
     }
 
     public function isSuccessful(): bool

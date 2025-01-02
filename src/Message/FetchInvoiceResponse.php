@@ -17,7 +17,7 @@ class FetchInvoiceResponse extends Response
 
     public function getDocumentUrl()
     {
-        return @$this->data['DocUrl'];
+        return $this->data['DocUrl'] ?? null;
     }
 
     public function getMessage()
